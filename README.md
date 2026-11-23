@@ -1,4 +1,6 @@
-# Omafind
+# SigmaOS Omafind
+
+> Forked from omacom/omafind (MIT). See `SIGMAOS_FORK.md`.
 
 Local, on-device semantic file search for [Omarchy](https://omarchy.org). Press `SUPER + CTRL + G`, describe what
 you're looking for, and Omafind finds it: *a dog on the beach* finds the photo, *the clause about pets in the lease*
