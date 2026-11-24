@@ -1,8 +1,8 @@
 # SigmaOS Omafind
 
-> Forked from omacom/omafind (MIT). See `SIGMAOS_FORK.md`.
+> Forked from SigmaOS/omafind (MIT). See `SIGMAOS_FORK.md`.
 
-Local, on-device semantic file search for [Omarchy](https://omarchy.org). Press `SUPER + CTRL + G`, describe what
+Local, on-device semantic file search for [SigmaOS](https://omarchy.org). Press `SUPER + CTRL + G`, describe what
 you're looking for, and Omafind finds it: *a dog on the beach* finds the photo, *the clause about pets in the lease*
 finds the page of the PDF, *where they talk about sleep* finds the moment in the recording. Photos, screenshots (with
 the text on them), PDFs (scans too), documents (txt, md, html, docx, odt, epub), audio, video and, opt-in, code.
@@ -10,7 +10,7 @@ Nothing leaves the machine.
 
 ![Omafind searching "the clause about pets in the lease": the lease PDF found at the page, with the matched passage under the page preview](assets/screenshot.png)
 
-The window follows your Omarchy theme and font, live. Results open where the match is: the video at the second,
+The window follows your SigmaOS theme and font, live. Results open where the match is: the video at the second,
 the PDF at the page, the code at the line.
 
 ## Install
@@ -40,10 +40,10 @@ run; `omafind setup` asks the same questions in a terminal. `omafind doctor` che
 ## How it works
 
 EmbeddingGemma 2 (text, vision and audio in one 768-dimension space) runs on llama.cpp with Vulkan, CUDA or the CPU.
-`omafindd` watches the chosen folders, reads what changed (poppler, tesseract, ffmpeg, all already on Omarchy), embeds it
+`omafindd` watches the chosen folders, reads what changed (poppler, tesseract, ffmpeg, all already on SigmaOS), embeds it
 in a worker that exits when the queue is empty, and answers searches over a socket: nearest vectors plus exact
 keywords (FTS5), fused and gated so only matches that stand out are shown. `omafind-app` is a native GPUI Kit window that follows
-your Omarchy theme. Developer notes are in [AGENTS.md](AGENTS.md).
+your SigmaOS theme. Developer notes are in [AGENTS.md](AGENTS.md).
 
 ## Credits
 
