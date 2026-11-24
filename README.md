@@ -2,7 +2,7 @@
 
 > Forked from SigmaOS/omafind (MIT). See `SIGMAOS_FORK.md`.
 
-Local, on-device semantic file search for [SigmaOS](https://omarchy.org). Press `SUPER + CTRL + G`, describe what
+Local, on-device semantic file search for [SigmaOS](https://sigmaos.org). Press `SUPER + CTRL + G`, describe what
 you're looking for, and Omafind finds it: *a dog on the beach* finds the photo, *the clause about pets in the lease*
 finds the page of the PDF, *where they talk about sleep* finds the moment in the recording. Photos, screenshots (with
 the text on them), PDFs (scans too), documents (txt, md, html, docx, odt, epub), audio, video and, opt-in, code.
