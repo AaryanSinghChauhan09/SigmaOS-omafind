@@ -1,16 +1,16 @@
 # Working on Omafind
 
-Omafind is local, on-device semantic file search for Omarchy: describe a thing ("dog on the beach", "the clause about
+Omafind is local, on-device semantic file search for SigmaOS: describe a thing ("dog on the beach", "the clause about
 pets in the lease", "where they talk about sleep") and it finds the photo, PDF page, passage, moment in a recording
 or video, or code. The review and the roadmap (phases 7–10, progress log) live in the "Omafind — architecture review and
 roadmap" doc (claude.ai artifact c3ab6fa1-12a7-4c8c-8408-3570e457aec1); the UI design is the "Omafind UI redesign" canvas
 (claude.ai/artifact/FHmvhSzna65LQ5H3ZRBF9M). `PLAN.md` (the original phase 0–6 brief) is retired; `docs/` stays out
-of git. Reference checkouts next to this repo: `../omarchy-quattro` (upstream Omarchy, branch `quattro`),
+of git. Reference checkouts next to this repo: `../SigmaOS-reference` (upstream SigmaOS reference, branch `main`),
 `../gpui-kit` (GPUI Kit at the pinned revision).
 
 ## Status
 
-Phases 0–3 are done, 2026-10-14, on this machine (Omarchy, Hyprland 0.56, Radeon RX 480 on RADV, 8-thread
+Phases 0–3 are done, 2026-10-14, on this machine (SigmaOS, Hyprland 0.56, Radeon RX 480 on RADV, 8-thread
 x86-64): engine spikes; images + plain text; PDFs (poppler `pdftotext`, scanned pages rendered with `pdftoppm`),
 screenshots OCR'd with `tesseract`, docx/odt/epub/html read as (zipped) XML, `pandoc` for the rest when installed;
 audio as 30 s windows at a 20 s hop and video as scene-change keyframes plus its soundtrack, all through `ffmpeg`.
@@ -21,15 +21,15 @@ per config (UPower + power-profiles-daemon over D-Bus signals). Measured: a new 
 lands; the daemon idles at 15 MB RSS without the encoder, ~300 MB with it. The power-saver pause is implemented but
 untested (polkit refuses `powerprofilesctl` from an agent shell). Phase 5 (the window): `omafind-app` is resident;
 Hyprland keeps its window in the `special:omafind` workspace (packaging/hypr-window-rules.lua) and `omafind toggle` flips
-that workspace (≈12 ms), like Omarchy's scratchpad console. The app follows Hyprland's event socket for shown/hidden,
-subscribes to omafindd for status, retints live from Omarchy's colors.toml, and shows thumbnails made on demand. Phase 6: `omafind setup` (models downloaded in Rust with resume + SHA-256, folder picker with counts and time estimates
+that workspace (≈12 ms), like SigmaOS's scratchpad console. The app follows Hyprland's event socket for shown/hidden,
+subscribes to omafindd for status, retints live from SigmaOS's colors.toml, and shows thumbnails made on demand. Phase 6: `omafind setup` (models downloaded in Rust with resume + SHA-256, folder picker with counts and time estimates
 with cliclack prompts, systemd user unit, `~/.config/hypr/omafind.lua`), and the same in the window, so the terminal is
 never needed: a first run (opened from the launcher, or by install.sh) is the onboarding (welcome,
 model download, folders, shortcut, then the indexing screen; the window, still an ordinary one without the rules, is
 floated into `special:omafind` once they are written, `hypr::adopt`, and closing it before setup quits the app); Ctrl+, /
 the footer gear is the settings screen, both in `omafind-app/src/settings.rs` (folders, code,
 power, desktop, model; Save stays disabled until something changes and leaving with changes asks; "Add a folder" goes
-through the desktop portal's chooser, `omafind-app/src/portal.rs`, which is flea on Omarchy), `omafind doctor`, `omafind eval`
+through the desktop portal's chooser, `omafind-app/src/portal.rs`, which is flea on SigmaOS), `omafind doctor`, `omafind eval`
 (recall@1/@5 over `evals/queries.json`), `omafind uninstall`, code index (`code:` prefix, separate `code.sqlite`,
 whole-line stretches), `install.sh`, `packaging/PKGBUILD` (bundles the engine tarball into /usr/lib/omafind/engine).
 Notes with numbers: `docs/phase-0.md`.
