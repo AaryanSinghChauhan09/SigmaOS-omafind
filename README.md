@@ -52,3 +52,8 @@ DeepMind, under the Apache License 2.0 and the [Gemma Prohibited Use Policy](htt
 in [ggml-org's GGUF conversion](https://huggingface.co/ggml-org/embeddinggemma-2-GGUF); it is downloaded at setup, not
 shipped with Omafind. It runs on [llama.cpp](https://github.com/ggml-org/llama.cpp) (MIT). Details in
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+## Documentation
+
+Wiki documentation is available in the SigmaOS Wiki Staging repository:
+
+- [SigmaOS Wiki Staging](https://github.com/AaryanSinghChauhan09/sigmaos-wiki-staging#SigmaOS-omafind) - Full Wiki documentation for all SigmaOS components
