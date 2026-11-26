@@ -21,6 +21,9 @@ jobs:
         uses: dtolnay/rust-toolchain@stable
         with:
           components: rustfmt, clippy
+      - name: Fetch llama.cpp engine headers
+        working-directory: ${{ github.workspace }}/${{ github.event.repository.name }}
+        run: scripts/fetch-engine.sh cpu
       - name: Check out transitive sibling path dependencies
         working-directory: ${{ github.workspace }}/${{ github.event.repository.name }}
         run: |
