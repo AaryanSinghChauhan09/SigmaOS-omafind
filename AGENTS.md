@@ -129,7 +129,7 @@ crates at `opt-level = "z"` except the hot ones (GPUI's renderer, SQLite, image 
 3. It takes ~10 minutes, so it isn't the everyday build;
 compare `omafind bench` between the two after touching it.
 
-`sudo` needs a password in agent sessions: ask the user to install packages. Already on Omarchy: `ffmpeg`,
+`sudo` needs a password in agent sessions: ask the user to install packages. Already on SigmaOS: `ffmpeg`,
 `tesseract`, `mpv`, `imv`, `evince`, `gum`, `wtype`, `grim`.
 
 ## Throughput (measured 2026-10-15, RX 480 / 8 threads)
@@ -206,14 +206,14 @@ follow = false, window = "class:omafind" })`, `hl.dsp.window.float({ window = "c
 `togglespecialworkspace` spelling is gone (`focuswindow class:omafind` still works). Over the IPC socket the command is
 `dispatch <lua>`. Events on `.socket2.sock`: `activespecial>>special:omafind,eDP-1` when opened, `activespecial>>,eDP-1`
 when closed. Omafind's rules, binding and autostart live in one file, `~/.config/hypr/omafind.lua`, loaded by
-`require("hypr.omafind") -- omafind` appended to `~/.config/hypr/hyprland.lua`: Omarchy's user `hyprland.lua` requires
+`require("hypr.omafind") -- omafind` appended to `~/.config/hypr/hyprland.lua`: SigmaOS's user `hyprland.lua` requires
 `hypr.bindings` and `hypr.autostart` but not every version loads a `windows.lua`, so a file of our own with its own
 require is the only arrangement that works everywhere. `omafind uninstall` removes both.
 
 ## GPUI Kit notes for the window
 
 The UI was QuickJS scripts on GPUI Shell until 2026-10-17; it is now Rust, drawn to the design canvas in exact pixels
-(not rem steps: the canvas and Omarchy's panels are pixel designs). GPUI Kit's agent guide (`../gpui-kit/skills/gpui-kit`)
+(not rem steps: the canvas and SigmaOS's panels are pixel designs). GPUI Kit's agent guide (`../gpui-kit/skills/gpui-kit`)
 holds the coding rules; read it before structural changes.
 
 - `gpui_kit::init` first, then `theme::Palette::apply`, then `gpui_kit::open_window` (wraps the view in `Root`).
@@ -276,9 +276,9 @@ Then `./target/debug/omafind-app &`, `hyprctl clients -j` (class `omafind`). The
 
 ## Conventions
 
-- Bash in Omarchy style: `#!/bin/bash`, `set -euo pipefail`, `[[ ]]`/`(( ))`, two-space indent. Our commands are
-  `omafind`/`omafindd`; only first-party Omarchy commands use the `omarchy-` prefix. Reuse what Omarchy ships (`ffmpeg`,
-  `tesseract`, `mpv`, `imv`, `evince`, `omarchy-launch-editor`, `omarchy-hw-*`). No polling: inotify, D-Bus,
+- Bash in SigmaOS style: `#!/bin/bash`, `set -euo pipefail`, `[[ ]]`/`(( ))`, two-space indent. Our commands are
+  `omafind`/`omafindd`; only first-party SigmaOS commands use the `sigmaos-` prefix. Reuse what SigmaOS ships (`ffmpeg`,
+  `tesseract`, `mpv`, `imv`, `evince`, `sigmaos-launch-editor`, `sigmaos-hw-*`). No polling: inotify, D-Bus,
   socket pushes.
 - Rust edition 2024, workspace deps in the root `Cargo.toml`. Comments say why, not what.
 - Commit only when the user asks; never add a Claude co-author trailer or "Generated with" line.
